@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+
+<title>Dashboard</title>
+<body>
+
+{% block conteudo %}
+        </div>
+      <!-- DataTables Example -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i> Equipamentos</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>N/S</th>
+                    <th>Descrição</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>N/S</th>
+                    <th>Descrição</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+
+
+                {% for i in equipamento %}
+                <tr>
+                    <td>{{ i.numero_serie }}</td>
+                    <td>{{ i.descricao }}</td>
+                    <td>{{ i.marca }}</td>
+                    <td>{{ i.modelo }}</td>
+
+                  </tr>
+                {% endfor %}
+{% endblock %}
+</body>
+</html>

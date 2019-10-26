@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cadastraros</title>
+</head>
+<body>
+{% block conteudo %}
+<form method="POST">{% csrf_token %}
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-md-6">
+                <h5>Motivo</h5>{{ form.motivo }}
+
+            </div>
+            <div class="col-md-6">
+               <h5>Serviço executado</h5> {{ form.servico_executado }}
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</form>
+
+{% endblock conteudo %}
+
+{{ form.empresa }}
+
+
+{{ form.servico_executado }}
+</body>
+</html>

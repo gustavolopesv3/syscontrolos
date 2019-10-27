@@ -12,7 +12,7 @@ def index(request):
     os = Os.objects.all().order_by('-dt_saida')
     return render(request, 'index.html', locals())
 
-
+@login_required
 def countOS(request):
     countos = Os.objects.all().count()
     return render(request, 'base.html', locals())

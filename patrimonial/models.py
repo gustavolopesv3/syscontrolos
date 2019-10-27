@@ -36,7 +36,7 @@ class Os(models.Model):
     motivo = models.CharField(max_length=30)
     ns = models.ForeignKey(Equipamento, on_delete=models.CASCADE)
     dt_saida = models.DateField('Data de Saida')
-    dt_retorno = models.DateField('Data de Retorno')
+    dt_retorno = models.DateField('Data de Retorno', null=True, blank=True)
     descricao = models.TextField(max_length=200)
     servico_executado = models.CharField(max_length=50)
     resposavel_interno = models.CharField(max_length=50)

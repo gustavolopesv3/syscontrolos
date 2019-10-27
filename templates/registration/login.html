@@ -1,3 +1,11 @@
+{% extends 'base_login.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block conteudo %}
+
+    <h4 class="card-title text-center">Para acessar o conteudo faça o login com suas credenciais</h4>
+
 <div class="row">
     <div class="col-md-4 offset-md-4">
         <div class="card auth-card">
@@ -5,8 +13,8 @@
                 <h4 class="card-title text-center"> entrar no sys</h4>
                 <form method="post">
                     {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ next }}">
-                    {{ form }}
+
+                    <h4>{{ form|crispy }}</h4>
                     <button type="submit" class="btn btn-primary btn-block">Entrar</button>
                 </form>
 
@@ -15,4 +23,4 @@
         </div>
 
     </div>
-</div>
+{% endblock conteudo %}

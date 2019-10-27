@@ -9,8 +9,13 @@ from django.contrib import messages
 
 @login_required
 def index(request):
-    os = Os.objects.all()
+    os = Os.objects.all().order_by('-dt_saida')
     return render(request, 'index.html', locals())
+
+
+def countOS(request):
+    countos = list(Os.objects.all)
+    return render(request, 'contador.html', locals())
 
 @login_required
 def equipamentos(request):
@@ -34,7 +39,7 @@ def modelo(request):
     modelo = Modelo.objects.all()
     return render(request, 'modelos.html', locals())
 
-
+@login_required
 def login(request):
     if request.method =='POST':
         user = authenticate(username=request.POST['usarname'], password=request.POST['password'])
@@ -48,8 +53,9 @@ def cadastroos(request):
     if request.method == 'POST':
         form = OsForm(request.POST)
         if form.is_valid():
-            post = form.save()
-            post.save()
-    else:
-        form = OsForm()
-    return render(request, 'cadastraros.html', {'form': form})
+            osform = form.save()
+            osform.save()
+            return redirect('/')
+    form = OsForm()
+    return render(request, 'cadastraros.html', {'form' : form})
+

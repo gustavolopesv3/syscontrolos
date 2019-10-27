@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,30 +8,17 @@
 </head>
 <body>
 {% block conteudo %}
-<form method="POST">{% csrf_token %}
-    <div class="form-group">
-        <div class="form-row">
-            <div class="col-md-6">
-                <h5>Motivo</h5>{{ form.motivo }}
+<div class="offset-1 col-10 list-div">
+    <h1>Adicionar nova Os</h1>
+    <form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" class="btn btn-success" value="Adicionar">
 
-            </div>
-            <div class="col-md-6">
-               <h5>Serviço executado</h5> {{ form.servico_executado }}
-
-            </div>
-        </div>
+</div>
 
 
-    </div>
-
-
-</form>
 
 {% endblock conteudo %}
-
-{{ form.empresa }}
-
-
-{{ form.servico_executado }}
 </body>
 </html>

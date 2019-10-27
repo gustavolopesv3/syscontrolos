@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from patrimonial.models import *
-from .forms import OsForm
+from .forms import *
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
@@ -72,3 +72,12 @@ def cadastroos(request):
     form = OsForm()
     return render(request, 'cadastraros.html', {'form' : form})
 
+def add_marca(request):
+    if request.method == 'POST':
+        form = MarcaForm(request.POST)
+        if form.is_valid():
+            marcaform = form.save()
+            marcaform.save()
+            return redirect('/')
+    form = MarcaForm()
+    return render(request, 'add_marca.html', {'form' : form})

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<head>
+    <meta charset="UTF-8">
+    <title>Marca</title>
+</head>
+<body>
+{% block conteudo %}
+<div class="offset-1 col-10 list-div">
+    <h1>Adicionar nova Marca</h1>
+    <form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" class="btn btn-success" value="Adicionar">
+{% endblock conteudo %}
+
+</div>

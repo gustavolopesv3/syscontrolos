@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
 from patrimonial.views import *
 
 urlpatterns = [
@@ -29,6 +28,8 @@ urlpatterns = [
     path('cadastraros', cadastroos, name='cadastraros'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('nova_os/', cadastroos, name='cadastrar_os'),
-    path('aguardando/', aguardandoOS, name='aguardando')
+    path('add_marca/', add_marca, name='add_marca'),
+    path('aguardando/', aguardandoOS, name='aguardando'),
+
 
 ]

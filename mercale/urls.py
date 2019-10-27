@@ -28,5 +28,4 @@ urlpatterns = [
     path('cadastraros', cadastroos, name='cadastraros'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('nova_os/', cadastroos, name='cadastrar_os'),
-    path('contador', countOS, name='contador_os')
 ]

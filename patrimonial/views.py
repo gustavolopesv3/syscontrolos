@@ -14,8 +14,8 @@ def index(request):
 
 
 def countOS(request):
-    countos = list(Os.objects.all)
-    return render(request, 'contador.html', locals())
+    countos = Os.objects.all().count()
+    return render(request, 'base.html', locals())
 
 @login_required
 def equipamentos(request):

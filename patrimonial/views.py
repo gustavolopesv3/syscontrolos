@@ -5,17 +5,30 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.db.models import Sum
 
 
 @login_required
 def index(request):
+    contar = Os.objects.all().count()
+    return render(request, 'base.html', locals())
+
+def os(request):
     os = Os.objects.all().order_by('-dt_saida')
-    return render(request, 'index.html', locals())
+    return render(request, 'os.html', locals())
 
 @login_required
 def countOS(request):
     countos = Os.objects.all().count()
+    aguardando = Os.objects.filter(dt_retorno=None).count()
+    equipamento = Equipamento.objects.all().count()
+    gastos = Os.objects.aggregate(valor_servico=Sum('valor_servico')).get('valor_servico')
     return render(request, 'base.html', locals())
+
+@login_required
+def aguardandoOS(request):
+    aguardando = Os.objects.filter(dt_retorno=None)
+    return render(request, 'aguardando.html', locals())
 
 @login_required
 def equipamentos(request):

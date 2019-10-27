@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+<body>
+
+{% block conteudo %}
+
+
+
+      <!-- DataTables Example -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Ultimas OS</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Motivo</th>
+                    <th>Descrição</th>
+                    <th>Executado</th>
+                    <th>N/S</th>
+                    <th>Empresa</th>
+                    <th>Deta Saida</th>
+                    <th>Deta Retorno</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>Motivo</th>
+                    <th>Descrição</th>
+                    <th>Executado</th>
+                    <th>N/S</th>
+                    <th>Empresa</th>
+                    <th>Deta Saida</th>
+                    <th>Deta Retorno</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+
+
+                {% for i in aguardando %}
+                <tr>
+                    <td>{{ i.motivo }}</td>
+                    <td>{{ i.descricao }}</td>
+                    <td>{{ i.servico_executado }}</td>
+                    <td>{{ i.ns }}</td>
+                    <td>{{ i.empresa }}</td>
+                    <td>{{ i.dt_saida }}</td>
+                    <td>{{ i.dt_retorno }}</td>
+
+                  </tr>
+                {% endfor %}
+{% endblock %}
+</body>
+</html>

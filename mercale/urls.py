@@ -20,7 +20,8 @@ from patrimonial.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
+    path('', countOS, name='inicio'),
+    path('os/', os, name='os'),
     path('equipamentos/', equipamentos, name='equipamentos'),
     path('prestador/', prestador, name='prestador'),
     path('marcas/', marcas, name='marcas'),
@@ -28,4 +29,6 @@ urlpatterns = [
     path('cadastraros', cadastroos, name='cadastraros'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('nova_os/', cadastroos, name='cadastrar_os'),
+    path('aguardando/', aguardandoOS, name='aguardando')
+
 ]

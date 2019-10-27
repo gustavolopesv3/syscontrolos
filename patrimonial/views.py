@@ -10,12 +10,13 @@ from django.contrib import messages
 @login_required
 def index(request):
     os = Os.objects.all().order_by('-dt_saida')
+    countos = Os.objects.all().count()
     return render(request, 'index.html', locals())
 
 @login_required
 def countOS(request):
     countos = Os.objects.all().count()
-    return render(request, 'base.html', locals())
+    return render(request, 'contador.html', locals())
 
 @login_required
 def equipamentos(request):
@@ -46,7 +47,7 @@ def login(request):
         if user is not None:
             login(request, user)
             return redirect('/equipamentos')
-    return render(request, 'registration/login.html')
+    return render(request, 'registration/../templates/base_login.html')
 
 
 def cadastroos(request):

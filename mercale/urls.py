@@ -30,6 +30,7 @@ urlpatterns = [
     path('nova_os/', cadastroos, name='cadastrar_os'),
     path('add_marca/', add_marca, name='add_marca'),
     path('aguardando/', aguardandoOS, name='aguardando'),
+    path('analitc_os', analictOS, name='analitc_os'),
 
 
 ]

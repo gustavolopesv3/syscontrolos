@@ -25,7 +25,7 @@ SECRET_KEY = 'h#0ql_5$enx)efgqw8^awx)i365su0a!8w3rlfh(d2jpapk_u_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -124,7 +124,10 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+PROJECT_ROOT = os.path.dirname(os.path.abspath(_file_))
+STATIC_ROOT = os.path.join(BASE_DIR, "patrimonial/static")
 
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())
+

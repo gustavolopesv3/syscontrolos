@@ -124,7 +124,7 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
-PROJECT_ROOT = os.path.dirname(os.path.abspath(_file_))
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, "patrimonial/static")
 
 # Configure Django App for Heroku.

@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Analict OS</title>
-</head>
+{% extends 'base.html' %}
+{% load static %}
 <body>
+{% block conteudo %}
+<img src="{% static 'img/LOGO.png' %}">
+
 <h3>OS N° {{ anatico.pk }}</h3>
 <h2>Prestador: {{ anatico.empresa }}</h2>
 <h2>CNJP: {{ anatico.empresa.cnpj }}</h2>
@@ -15,6 +14,12 @@
 <h5>________________________________________</h5>
 <h5>Responsavel empresa: {{ anatico.resposavel_empresa }}</h5>
 <h5>________________________________________</h5>
-<h5>{{ anatico.resposavel_interno }}</h5>
+<h5>Resposavel interno: {{ anatico.resposavel_interno }}</h5>
+
+    <a href="#">
+      <button class="btn btn-success">Imprimir</button>
+    </a>
+
+{% endblock %}
 </body>
 </html>

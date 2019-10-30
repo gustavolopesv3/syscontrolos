@@ -15,7 +15,7 @@ def index(request):
 
 @login_required
 def os(request):
-    os = Os.objects.all().order_by('-dt_saida')
+    os = Os.objects.order_by('dt_saida').all()
     return render(request, 'os.html', locals())
 
 @login_required

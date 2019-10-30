@@ -127,7 +127,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, "patrimonial/static")
 
-# Configure Django App for Heroku.
-import django_heroku
-django_heroku.settings(locals())
+
 

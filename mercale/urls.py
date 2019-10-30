@@ -31,6 +31,7 @@ urlpatterns = [
     path('add_marca/', add_marca, name='add_marca'),
     path('aguardando/', aguardandoOS, name='aguardando'),
     path('analitc_os/<int:id>/', analictOS, name='analitc_os'),
+    path('add_prestador', add_prestador, name='add_prestador'),
 
 
 ]

@@ -13,6 +13,7 @@ def index(request):
     contar = Os.objects.all().count()
     return render(request, 'base.html', locals())
 
+@login_required
 def os(request):
     os = Os.objects.all().order_by('-dt_saida')
     return render(request, 'os.html', locals())
@@ -48,6 +49,7 @@ def marcas(request):
     return render(request, 'marcas.html', locals())
 
 
+@login_required
 def modelo(request):
     modelo = Modelo.objects.all()
     return render(request, 'modelos.html', locals())
@@ -61,7 +63,7 @@ def login(request):
             return redirect('/equipamentos')
     return render(request, 'registration/login.html')
 
-
+@login_required
 def cadastroos(request):
     if request.method == 'POST':
         form = OsForm(request.POST)
@@ -81,6 +83,16 @@ def add_marca(request):
             return redirect('/')
     form = MarcaForm()
     return render(request, 'add_marca.html', {'form' : form})
+
+def add_prestador(request):
+    if request.method == 'POST':
+        form = PrestadoForm(request.POST)
+        if form.is_valid():
+            prestadoform = form.save()
+            prestadoform.save()
+            return redirect('/')
+    form = PrestadoForm()
+    return render(request, 'add_prestador.html', {'form' : form})
 
 def analictOS(request, id):
     anatico = Os.objects.get(id=id)

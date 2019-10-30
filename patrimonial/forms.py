@@ -11,3 +11,8 @@ class MarcaForm(forms.ModelForm):
     class Meta:
         model = Marca
         fields = ('nome',)
+
+class PrestadoForm(forms.ModelForm):
+    class Meta:
+        model = Prestador_servico
+        fields = '__all__'

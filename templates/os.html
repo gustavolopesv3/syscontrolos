@@ -18,6 +18,7 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
+                    <th>N°</th>
                     <th>Motivo</th>
                     <th>Descrição</th>
                     <th>Executado</th>
@@ -29,6 +30,7 @@
                 </thead>
                 <tfoot>
                   <tr>
+                    <th>N°</th>
                     <th>Motivo</th>
                     <th>Descrição</th>
                     <th>Executado</th>
@@ -43,7 +45,12 @@
 
                 {% for i in os %}
                 <tr>
-                    <td>{{ i.motivo }}</td>
+                    <td>{{ i.id }}</td>
+                    <td>
+                        <a href="{% url 'analitc_os' i.id %}">
+                            {{ i.motivo }}
+                        </a>
+                    </td>
                     <td>{{ i.descricao }}</td>
                     <td>{{ i.servico_executado }}</td>
                     <td>{{ i.ns }}</td>

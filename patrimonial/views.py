@@ -82,6 +82,6 @@ def add_marca(request):
     form = MarcaForm()
     return render(request, 'add_marca.html', {'form' : form})
 
-def analictOS(request):
-    analict = Os.objects.filter(ns)
-    return render(request, 'analitc_os.html')
+def analictOS(request, id):
+    anatico = Os.objects.get(id=id)
+    return render(request, 'analitc_os.html', locals())

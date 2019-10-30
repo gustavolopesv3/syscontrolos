@@ -5,6 +5,16 @@
     <title>Analict OS</title>
 </head>
 <body>
-
+<h3>OS N° {{ anatico.pk }}</h3>
+<h2>Prestador: {{ anatico.empresa }}</h2>
+<h2>CNJP: {{ anatico.empresa.cnpj }}</h2>
+<h3>Equipamento: {{ anatico.ns.descricao }} | Marca: {{ anatico.ns.marca }} | Modelo: {{ anatico.ns.modelo }}| NS: {{ anatico.ns.numero_serie }}</h3>
+<h5>Motivo: {{ anatico.motivo }}</h5>
+<h5>Descrição: {{ anatico.descricao }}</h5>
+<h5>Data de saida:{{ anatico.dt_saida }}</h5>
+<h5>________________________________________</h5>
+<h5>Responsavel empresa: {{ anatico.resposavel_empresa }}</h5>
+<h5>________________________________________</h5>
+<h5>{{ anatico.resposavel_interno }}</h5>
 </body>
 </html>

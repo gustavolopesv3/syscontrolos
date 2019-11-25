@@ -1,1 +1,1 @@
-web: gunicorn praminial.wsgi
+web: gunicorn mercale.wsgi
